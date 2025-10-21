@@ -1,0 +1,23 @@
+{
+  "name": "mexusjs-blog",
+  "version": "1.0.0",
+  "keywords": [
+    "nathius262/nexusjs", "Express", "Sequelize", "Handlebars", "Cloudinary", "Multer"
+  ],
+  "description": "> Modular blog platform built on NexusJS (mexusjs) + Express, Sequelize, Handlebars, Cloudinary & Multer.",
+  "homepage": "https://github.com/nathius262/mexusjs-blog#readme",
+  "bugs": {
+    "url": "https://github.com/nathius262/mexusjs-blog/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathius262/mexusjs-blog.git"
+  },
+  "license": "MIT",
+  "author": "nathius262",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
