@@ -28,7 +28,8 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "@nathius262/nexusjs": "^0.0.20"
+    "@nathius262/nexusjs": "^0.0.20",
+    "sequelize-slugify": "^1.6.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.10",
