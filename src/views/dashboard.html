@@ -1,0 +1,181 @@
+<!-- Dashboard Stats -->
+<div class="row">
+    <div class="col-md-3">
+        <div class="dashboard-card">
+            <div class="card-icon primary">
+                <i class="bi bi-file-text"></i>
+            </div>
+            <div class="card-value">142</div>
+            <div class="card-label">Total Posts</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="dashboard-card">
+            <div class="card-icon success">
+                <i class="bi bi-eye"></i>
+            </div>
+            <div class="card-value">24.5K</div>
+            <div class="card-label">Monthly Views</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="dashboard-card">
+            <div class="card-icon warning">
+                <i class="bi bi-chat-dots"></i>
+            </div>
+            <div class="card-value">328</div>
+            <div class="card-label">Comments</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="dashboard-card">
+            <div class="card-icon danger">
+                <i class="bi bi-people"></i>
+            </div>
+            <div class="card-value">1,842</div>
+            <div class="card-label">Subscribers</div>
+        </div>
+    </div>
+</div>
+
+<!-- Charts Row -->
+<div class="row">
+    <div class="col-md-8">
+        <div class="chart-container">
+            <h5>Traffic Overview</h5>
+            <canvas id="trafficChart"></canvas>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="chart-container">
+            <h5>Post Categories</h5>
+            <canvas id="categoryChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Posts & Comments -->
+<div class="row">
+    <div class="col-md-8">
+        <div class="table-container">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5>Recent Posts</h5>
+                <a href="#" class="btn btn-primary btn-sm">New Post</a>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Author</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Understanding React Hooks</td>
+                            <td>JavaScript</td>
+                            <td>John Developer</td>
+                            <td>May 15, 2023</td>
+                            <td><span class="badge badge-published">Published</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button>
+                                <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Building RESTful APIs with Node.js</td>
+                            <td>Backend</td>
+                            <td>Sarah Coder</td>
+                            <td>May 12, 2023</td>
+                            <td><span class="badge badge-published">Published</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button>
+                                <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Modern CSS Layouts with Grid</td>
+                            <td>CSS</td>
+                            <td>Lisa Designer</td>
+                            <td>May 10, 2023</td>
+                            <td><span class="badge badge-draft">Draft</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button>
+                                <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Vue.js 3 Composition API Guide</td>
+                            <td>Frontend</td>
+                            <td>Alex Vue</td>
+                            <td>May 8, 2023</td>
+                            <td><span class="badge badge-published">Published</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button>
+                                <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>MongoDB Best Practices</td>
+                            <td>Database</td>
+                            <td>Mike DB</td>
+                            <td>May 5, 2023</td>
+                            <td><span class="badge badge-pending">Pending</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button>
+                                <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="table-container">
+            <h5>Recent Comments</h5>
+            <div class="comments-list">
+                <div class="comment-item mb-3 p-3 border rounded">
+                    <div class="d-flex justify-content-between">
+                        <strong>Michael Davis</strong>
+                        <small class="text-muted">2 hours ago</small>
+                    </div>
+                    <p class="mb-1">Great article! Really helped me understand hooks better.</p>
+                    <small class="text-muted">On: Understanding React Hooks</small>
+                    <div class="mt-2">
+                        <button class="btn btn-sm btn-success"><i class="bi bi-check"></i> Approve</button>
+                        <button class="btn btn-sm btn-danger"><i class="bi bi-x"></i> Reject</button>
+                    </div>
+                </div>
+                <div class="comment-item mb-3 p-3 border rounded">
+                    <div class="d-flex justify-content-between">
+                        <strong>Sarah Rodriguez</strong>
+                        <small class="text-muted">5 hours ago</small>
+                    </div>
+                    <p class="mb-1">Could you provide more examples about error handling?</p>
+                    <small class="text-muted">On: Building RESTful APIs with Node.js</small>
+                    <div class="mt-2">
+                        <button class="btn btn-sm btn-success"><i class="bi bi-check"></i> Approve</button>
+                        <button class="btn btn-sm btn-danger"><i class="bi bi-x"></i> Reject</button>
+                    </div>
+                </div>
+                <div class="comment-item mb-3 p-3 border rounded">
+                    <div class="d-flex justify-content-between">
+                        <strong>James Thompson</strong>
+                        <small class="text-muted">1 day ago</small>
+                    </div>
+                    <p class="mb-1">This tutorial saved me hours of research. Thanks!</p>
+                    <small class="text-muted">On: Modern CSS Layouts with Grid</small>
+                    <div class="mt-2">
+                        <button class="btn btn-sm btn-success"><i class="bi bi-check"></i> Approve</button>
+                        <button class="btn btn-sm btn-danger"><i class="bi bi-x"></i> Reject</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
