@@ -1,0 +1,192 @@
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h1 class="page-title">Create New Post</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="/admin/blog">Blog Posts</a></li>
+                            <li class="breadcrumb-item active">Create New</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <form id="create-post-form">
+            <!-- Basic Information Card -->
+            <div class="form-card">
+                <h3 class="form-section-title">Basic Information</h3>
+                
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="mb-3">
+                            <label for="postTitle" class="form-label">Post Title</label>
+                            <input type="text" class="form-control" id="postTitle" placeholder="Enter post title" required>
+                            <div class="character-count" id="titleCount">0/120 characters</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="postSlug" class="form-label">URL Slug</label>
+                            <input type="text" class="form-control" id="postSlug" placeholder="auto-generated-slug">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="postExcerpt" class="form-label">Excerpt</label>
+                    <textarea class="form-control" id="postExcerpt" rows="3" placeholder="Brief description of your post" maxlength="200"></textarea>
+                    <div class="character-count" id="excerptCount">0/200 characters</div>
+                </div>
+            </div>
+
+            <!-- Content Editor Card -->
+            <div class="form-card">
+                <h3 class="form-section-title">Content</h3>
+                
+                <div class="editor-container">
+                    <div class="editor-toolbar">
+                        <div class="btn-group me-2" role="group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-type-bold"></i></button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-type-italic"></i></button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-type-underline"></i></button>
+                        </div>
+                        <div class="btn-group me-2" role="group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-list-ul"></i></button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-list-ol"></i></button>
+                        </div>
+                        <div class="btn-group me-2" role="group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-link"></i></button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-image"></i></button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-code-slash"></i></button>
+                        </div>
+                    </div>
+                    <div class="editor-content" contenteditable="true" id="postContent">
+                        <p>Start writing your amazing blog post here...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Metadata Card -->
+            <div class="form-card">
+                <h3 class="form-section-title">Metadata</h3>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="postCategory" class="form-label">Category</label>
+                            <select class="form-select" id="postCategory" required>
+                                <option value="">Select a category</option>
+                                <option value="javascript">JavaScript</option>
+                                <option value="react">React</option>
+                                <option value="nodejs">Node.js</option>
+                                <option value="css">CSS</option>
+                                <option value="bootstrap">Bootstrap</option>
+                                <option value="database">Database</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="postStatus" class="form-label">Status</label>
+                            <select class="form-select" id="postStatus">
+                                <option value="draft">Draft</option>
+                                <option value="published">Published</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="featuredImage" class="form-label">Featured Image</label>
+                    <div class="image-upload-area" id="imageUploadArea">
+                        <div class="upload-icon">
+                            <i class="bi bi-cloud-arrow-up"></i>
+                        </div>
+                        <h5>Drag & Drop or Click to Upload</h5>
+                        <p class="text-muted">Recommended size: 1200x630 pixels</p>
+                        <input type="file" id="featuredImage" accept="image/*" style="display: none;">
+                    </div>
+                </div>
+
+                <div id="scheduledDate" class="row" style="display: none;">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="publishDate" class="form-label">Publish Date</label>
+                            <input type="date" class="form-control" id="publishDate">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="publishTime" class="form-label">Publish Time</label>
+                            <input type="time" class="form-control" id="publishTime">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Actions -->
+            <div class="form-actions text-end">
+                <button type="button" class="btn btn-outline me-2">Save as Draft</button>
+                <button type="submit" class="btn btn-primary">Publish Post</button>
+            </div>
+        </form>
+    </main>
+
+    <script>
+        // Character count for title
+        document.getElementById('postTitle').addEventListener('input', function() {
+            const count = this.value.length;
+            const counter = document.getElementById('titleCount');
+            counter.textContent = `${count}/120 characters`;
+            if (count > 100) {
+                counter.classList.add('warning');
+            } else {
+                counter.classList.remove('warning');
+            }
+        });
+
+       
+        // Image upload
+        document.getElementById('imageUploadArea').addEventListener('click', function() {
+            document.getElementById('featuredImage').click();
+        });
+
+        document.getElementById('featuredImage').addEventListener('change', function(e) {
+            if (this.files && this.files[0]) {
+                const uploadArea = document.getElementById('imageUploadArea');
+                uploadArea.innerHTML = `
+                    <div class="upload-icon text-success">
+                        <i class="bi bi-check-circle"></i>
+                    </div>
+                    <h5>Image Selected</h5>
+                    <p class="text-muted">${this.files[0].name}</p>
+                    <button type="button" class="btn btn-sm btn-outline" id="changeImage">Change Image</button>
+                `;
+                
+                document.getElementById('changeImage').addEventListener('click', function() {
+                    document.getElementById('featuredImage').click();
+                });
+            }
+        });
+
+        // Show/hide scheduled date
+        document.getElementById('postStatus').addEventListener('change', function() {
+            const scheduledDate = document.getElementById('scheduledDate');
+            scheduledDate.style.display = this.value === 'scheduled' ? 'block' : 'none';
+        });
+
+        // Form submission
+        document.getElementById('create-post-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Post created successfully!');
+        });
+    </script>
+</body>
+</html>
